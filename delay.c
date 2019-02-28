@@ -1,4 +1,4 @@
-/*4.2 cwiczenia podpunkt 7 */
+/*4.2 cwiczenia podpunkt 7*/
 #include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615

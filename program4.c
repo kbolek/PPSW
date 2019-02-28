@@ -13,6 +13,9 @@ int main(){
 	
 	//wejscie w petle nieskonczona
 	while(1){
+		//realizacja podpunktu 3
+		IO1SET = 0x10000;
+		IO1CLR = 0x10000;
 	}
 	
 	

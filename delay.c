@@ -14,7 +14,7 @@ void Delay(int ile){
 }
 
 int main(){
-	IO1DIR = 0x10000;
+	IO1DIR = IO1DIR|LED3_bm;
 	while(1){
 		/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
 		Delay(50);

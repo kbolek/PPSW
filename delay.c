@@ -1,6 +1,8 @@
-/*4.2 cwiczenia podpunktn 8 */#include <LPC21xx.H>
+/*4.2 cwiczenia podpunktn 6 */
+#include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615
+#define LED0_bm 0x10000 //16 bit ma wartosc 1
 
 void Delay(int ile){
 	unsigned long int i;
@@ -14,12 +16,11 @@ void Delay(int ile){
 int main(){
 	IO1DIR = 0x10000;
 	while(1){
-	/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
-
+		/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
 		Delay(50);
-		IO1SET = 0x10000;
+		IO1SET = LED0_bm;
 		Delay(50);
-		IO1CLR = 0x10000;
+		IO1CLR = LED0_bm;
 	}
 
 }

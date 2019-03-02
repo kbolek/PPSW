@@ -1,4 +1,4 @@
-/*4.2 cwiczenia podpunktu 11 */
+/*4.2 cwiczenia podpunktu 12 */
 #include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615
@@ -17,25 +17,21 @@ void Delay(int ile){
 }
 
 int main(){
-<<<<<<< HEAD
-	IO1DIR = IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm;
-	//zapalenie 1 diody
-	IO1SET = IO1SET|LED0_bm;
-	//zapalenie 2 diody
-	IO1SET = IO1SET|LED1_bm;
-	//zapalanie 3 diody
-	IO1SET = IO1SET|LED2_bm;
-	//zapalenie 4 diody
-	IO1SET = IO1SET|LED3_bm;
-=======
-	IO1DIR = IO1DIR|LED3_bm;
+	
+	IO1DIR = IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm;	
 	while(1){
-		/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
-		Delay(50);
+		//przesuwanie punktu swietlnego led 0-3 0-3 itd.
+		IO1SET = IO1SET|LED0_bm;
+		Delay(250);
+		IO1CLR = IO1CLR|LED0_bm;
+		IO1SET = IO1SET|LED1_bm;
+		Delay(250);
+		IO1CLR = IO1CLR|LED1_bm;
+		IO1SET = IO1SET|LED2_bm;
+		Delay(250);
+		IO1CLR = IO1CLR|LED2_bm;
 		IO1SET = IO1SET|LED3_bm;
-		Delay(50);
-		IO1CLR = IO1SET|LED3_bm;
+		Delay(250);
+		IO1CLR = IO1CLR|LED3_bm;
+		}
 	}
-
->>>>>>> 3c107bc60214803f1b418f15a47430166ce6952c
-}

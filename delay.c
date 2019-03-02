@@ -17,6 +17,7 @@ void Delay(int ile){
 }
 
 int main(){
+<<<<<<< HEAD
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm;
 	//zapalenie 1 diody
 	IO1SET = IO1SET|LED0_bm;
@@ -26,4 +27,15 @@ int main(){
 	IO1SET = IO1SET|LED2_bm;
 	//zapalenie 4 diody
 	IO1SET = IO1SET|LED3_bm;
+=======
+	IO1DIR = IO1DIR|LED3_bm;
+	while(1){
+		/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
+		Delay(50);
+		IO1SET = IO1SET|LED3_bm;
+		Delay(50);
+		IO1CLR = IO1SET|LED3_bm;
+	}
+
+>>>>>>> 3c107bc60214803f1b418f15a47430166ce6952c
 }

@@ -1,4 +1,4 @@
-/*4.2 cwiczenia podpunktn 6 */
+/*4.2 cwiczenia podpunktn 9 */
 #include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615
@@ -18,9 +18,9 @@ int main(){
 	while(1){
 		/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
 		Delay(50);
-		IO1SET = LED0_bm;
+		IO1SET = IO1SET|LED0_bm;
 		Delay(50);
-		IO1CLR = LED0_bm;
+		IO1CLR = IO1SET|LED0_bm;
 	}
 
 }

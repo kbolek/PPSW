@@ -1,6 +1,6 @@
 /*4.2 cwiczenia podpunktu 17 */
 #include <LPC21xx.H>
-#define S1 0x10
+#define S1 0x100
 #define LED0_bm  0x10000 //16 bit ma wartosc 1
 #define LED1_bm  0x20000 //17 bit ma wartosc 1
 #define LED2_bm  0x40000 // 18 bit ma wartosc 1

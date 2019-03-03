@@ -7,9 +7,9 @@
 #define LED3_bm 0x80000 //19 bit ma wartosc 1
 
 int ReadButton1(){
-	int return_number = 0;
-	return_number = ((IO0PIN&S1)== S1) ? 1: 0;
-	return return_number;
+	int ReturnNumber = 0;
+	ReturnNumber = ((IO0PIN&S1)== S1) ? 1: 0;
+	return ReturnNumber;
 }
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */
@@ -26,10 +26,10 @@ void LedOn(int nmb_of_led){
 	
 }
 int main(){
-	int press;
+	int Press;
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm;
 	IO0DIR = IO0DIR|S1;
 	IO0SET = IO0SET|S1;
-	press = ReadButton1();
-	LedOn(press);	
+	Press = ReadButton1();
+	LedOn(Press);	
 }

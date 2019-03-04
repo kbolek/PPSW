@@ -1,21 +1,20 @@
 /*4.2 cwiczenia podpunktu 16 */
 #include <LPC21xx.H>
 #define S1 0x20
-#define LED0_bm  0x10000 //16 bit ma wartosc 1
-#define LED1_bm  0x20000 //17 bit ma wartosc 1
-#define LED2_bm  0x40000 // 18 bit ma wartosc 1
-#define LED3_bm 0x80000 //19 bit ma wartosc 1
+#define LED0_bm  0x10000 
+#define LED1_bm  0x20000 
+#define LED2_bm  0x40000 
+#define LED3_bm 0x80000 
 
-int ReadButton1(){
-	int ReturnNumber = 0;
-	ReturnNumber = ((IO0PIN&S1)== S1) ? 1: 0;
-	return ReturnNumber;
+int uiReadButton1(){
+	unsigned int uiReturnNumber = 0;
+	iReturnNumber = ((IO0PIN&S1)== S1) ? 1: 0;
+	return uiReturnNumber;
 }
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */
-void LedOn(int nmb_of_led){
-	switch(nmb_of_led){
-		//etykiety zapalajace poszczegolne diody
+void LedOn(unsigned int uiNumberOfLed){
+	switch(uiNumberOfLed){
 		case 0:
 			IO1SET = IO1SET|LED0_bm;
 			break;
@@ -26,10 +25,10 @@ void LedOn(int nmb_of_led){
 	
 }
 int main(){
-	int Press;
+	int iPress;
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm;
 	IO0DIR = IO0DIR|S1;
 	IO0SET = IO0SET|S1;
-	Press = ReadButton1();
-	LedOn(Press);	
+	iPress = uiReadButton1();
+	LedOn(iPress);	
 }

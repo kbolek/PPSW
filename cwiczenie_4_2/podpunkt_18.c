@@ -4,7 +4,7 @@
 #define S1 0x20
 #define S2 0x40
 #define S3 0x80
-#define LED0_bm  0xA0
+#define LED0_bm  0x10000
 #define LED1_bm  0x20000 
 #define LED2_bm  0x40000 
 #define LED3_bm 0x80000 

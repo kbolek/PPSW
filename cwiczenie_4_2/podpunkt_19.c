@@ -10,7 +10,7 @@
 #define LED3_bm 0x80000
 
 
-/* */
+/*W zaleznosci od przycisku zwraca taka wartosc */
 int eKeyboardRead(){
 	enum KeyboardState {RELEASED,BUTTON_1,BUTTON_2,BUTTON_3,BUTTON_4};
 	enum KeyboardState eReturnNumber = RELEASED;

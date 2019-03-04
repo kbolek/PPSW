@@ -9,7 +9,7 @@
 int iReadButton1(){
 	enum ButtonState {RELEASED,PRESSED}; //RELEASED => 0, PRESSED => 1
 	enum ButtonState iReturnNumber = RELEASED;
-	iReturnNumber = ((IO0PIN&S1)== S1) ? PRESSED: RELEASED;
+	iReturnNumber = ((IO0PIN&S1)== S1) ? RELEASED: PRESSED;
 	return iReturnNumber;
 }
 

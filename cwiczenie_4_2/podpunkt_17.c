@@ -6,12 +6,11 @@
 #define LED2_bm  0x40000 // 18 bit ma wartosc 1
 #define LED3_bm 0x80000 //19 bit ma wartosc 1
 
-enum ButtonState {RELEASED,PRESSED}; //RELEASED => 0, PRESSED => 1
-
-int ReadButton1(){
-	enum ButtonState ReturnNumber = RELEASED;
-	ReturnNumber = ((IO0PIN&S1)== S1) ? PRESSED: RELEASED;
-	return ReturnNumber;
+int iReadButton1(){
+	enum ButtonState {RELEASED,PRESSED}; //RELEASED => 0, PRESSED => 1
+	enum ButtonState iReturnNumber = RELEASED;
+	iReturnNumber = ((IO0PIN&S1)== S1) ? PRESSED: RELEASED;
+	return iReturnNumber;
 }
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */
@@ -28,10 +27,10 @@ void LedOn(int Number){
 	
 }
 int main(){
-	int GiveANumber;
+	int iGiveANumber;
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm;
 	IO0DIR = IO0DIR|S1;
 	IO0SET = IO0SET|S1;
-	GiveANumber = ReadButton1();
-	LedOn(GiveANumber);	
+	iGiveANumber = iReadButton1();
+	LedOn(iGiveANumber);	
 }

@@ -1,11 +1,17 @@
 /*4.2 cwiczenia podpunkt 6 */
-/*4.2 cwiczenia podpunktn 7 */
+/*4.2 cwiczenia podpunkt 7 */
 #include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615
 
-void Delay(int ile){
-@@ -12,12 +13,12 @@ void Delay(int ile){
+/*Funkcja odpowiedzialna za opoznienie
+dla mojego kompilatora 1 ms to 4615 iteracji*/
+void Delay(int iHowLong){
+	unsigned long int uiIntCounter;
+	char cCharIncrementation;
+	for(uiIntCounter=0; uiIntCounter<(iHowLong*MILI);uiIntCounter++){
+		cCharIncrementation++;
+	}
 }
 
 int main(){

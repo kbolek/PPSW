@@ -3,23 +3,24 @@
 #define MILI 4615
 
 
-void Delay(int ile){
-	unsigned long int i;
-	//dla mojego kompilatora 1 ms to 4615 iteracji
-	char a;
-	for(i=0; i<(ile*MILI);i++){
-		a++;
+/*Funkcja odpowiedzialna za opoznienie
+dla mojego kompilatora 1 ms to 4615 iteracji*/
+void Delay(int iHowLong){
+	unsigned long int uiIntCounter;
+	char cCharIncrementation;
+	for(uiIntCounter=0; uiIntCounter<(iHowLong*MILI);uiIntCounter++){
+		cCharIncrementation++;
 	}
 }
 
 
+/*Miganie diody z czestotliwoscia 10Hz */
 int main(){
 	IO1DIR = 0x10000;
 	while(1){
-	/*Podpunkt 8 - dioda migajaca z czestotliwoscia 10 Hz*/
-
 		Delay(50);
 		IO1SET = 0x10000;
 		Delay(50);
 	}
+}
 	

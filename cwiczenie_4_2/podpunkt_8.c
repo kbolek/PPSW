@@ -1,16 +1,16 @@
 /*4.2 cwiczenia podpunktn 9 */
-
 #include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615
 #define LED0_bm 0x10000 //16 bit ma wartosc 1
 
-void Delay(int ile){
-	unsigned long int i;
-	//dla mojego kompilatora 1 ms to 4615 iteracji
-	char a;
-	for(i=0; i<(ile*MILI);i++){
-		a++;
+/*Funkcja odpowiedzialna za opoznienie
+dla mojego kompilatora 1 ms to 4615 iteracji*/
+void Delay(int iHowLong){
+	unsigned long int uiIntCounter;
+	char cCharIncrementation;
+	for(uiIntCounter=0; uiIntCounter<(iHowLong*MILI);uiIntCounter++){
+		cCharIncrementation++;
 	}
 }
 

@@ -2,24 +2,24 @@
 #include <LPC21xx.H>
 #include <stdio.h>
 #define MILI 4615
-#define LED0_bm  0x10000 //16 bit ma wartosc 1
-#define LED1_bm  0x20000 //17 bit ma wartosc 1
-#define LED2_bm  0x40000 // 18 bit ma wartosc 1
-#define LED3_bm 0x80000 //19 bit ma wartosc 1
+#define LED0_bm  0x10000 
+#define LED1_bm  0x20000 
+#define LED2_bm  0x40000 
+#define LED3_bm 0x80000 
 
-void Delay(int ile){
-	unsigned long int i;
-	//dla mojego kompilatora 1 ms to 4615 iteracji
-	char a;
-	for(i=0; i<(ile*MILI);i++){
-		a++;
+/*Funkcja odpowiedzialna za opoznienie
+dla mojego kompilatora 1 ms to 4615 iteracji*/
+void Delay(int iHowLong){
+	unsigned long int uiIntCounter;
+	char cCharIncrementation;
+	for(uiIntCounter=0; uiIntCounter<(iHowLong*MILI);uiIntCounter++){
+		cCharIncrementation++;
 	}
 }
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */
 void LedOn(int nmb_of_led){
 	switch(nmb_of_led){
-		//etykiety zapalajace poszczegolne diody
 		case 1:
 			IO1SET = IO1SET|LED0_bm;
 			break;
@@ -36,7 +36,7 @@ void LedOn(int nmb_of_led){
 	
 }
 
-/*Funkcja która ustawia piny podpiete do LED0-LED3 na wyjsciowe
+/*Funkcja ktÃ³ra ustawia piny podpiete do LED0-LED3 na wyjsciowe
 i zapala LED0*/
 void LedInit(){
 		IO1DIR = IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm;
@@ -44,10 +44,9 @@ void LedInit(){
 	
 }
 
-
+/*przesuwanie punktu swietlnego led 0-3 0-3 itd.*/
 int main(){
 	while(1){
-		//przesuwanie punktu swietlnego led 0-3 0-3 itd.
 		LedInit();
 		Delay(250);
 		IO1CLR = IO1CLR|LED0_bm;

@@ -19,6 +19,7 @@ void Delay(int iHowLong){
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */
 void LedOn(int nmb_of_led){
+	IO1CLR = IO1SET;
 	switch(nmb_of_led){
 		case 1:
 			IO1SET = IO1SET|LED0_bm;

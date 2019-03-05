@@ -20,7 +20,7 @@ int iReadButton1(){
 
 /*Funkcja ustawiajaca wszystkie piny przyciskow S1-S4 na wejscie */
 void KeyboardInit(){
-	IO0DIR = IO0DIR|S0|S1|S2|S3; 
+	IO0DIR = IO0DIR&(~(|S0|S1|S2|S3)); 
 }
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */

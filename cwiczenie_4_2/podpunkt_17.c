@@ -28,8 +28,7 @@ void LedOn(int Number){
 int main(){
 	int iGiveANumber;
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm;
-	IO0DIR = IO0DIR|S1;
-	IO0SET = IO0SET|S1;
+	IO0DIR = IO0DIR&(~S1);
 	iGiveANumber = iReadButton1();
 	LedOn(iGiveANumber);	
 }

@@ -8,7 +8,7 @@
 
 int uiReadButton1(){
 	unsigned int uiReturnNumber = 0;
-	iReturnNumber = ((IO0PIN&S1)== S1) ? 1: 0;
+	uiReturnNumber = ((IO0PIN&S1)== S1) ? 0: 1;
 	return uiReturnNumber;
 }
 
@@ -27,8 +27,7 @@ void LedOn(unsigned int uiNumberOfLed){
 int main(){
 	int iPress;
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm;
-	IO0DIR = IO0DIR|S1;
-	IO0SET = IO0SET|S1;
+	IO0DIR = IO0DIR&(~S1);
 	iPress = uiReadButton1();
 	LedOn(iPress);	
 }

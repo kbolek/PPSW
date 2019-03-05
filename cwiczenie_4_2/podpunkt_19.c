@@ -9,31 +9,33 @@
 #define LED2_bm  0x40000
 #define LED3_bm 0x80000
 
+/*Funkcja ustawiajaca wszystkie piny przyciskow S1-S4 na wejscie */
+void KeyboardInit(){
+	IO0DIR = IO0DIR&(~(S0|S1|S2|S3)); //bez modyfikacji innych bitow rejestru
+}
 
 /*W zaleznosci od przycisku zwraca taka wartosc */
 int eKeyboardRead(){
 	enum KeyboardState {RELEASED,BUTTON_1,BUTTON_2,BUTTON_3,BUTTON_4};
 	enum KeyboardState eReturnNumber = RELEASED;
-	if(S0 == (IO0PIN&S0)){
+	KeyboardInit();
+	if(S0 ==(~IO0PIN & S0)){
 		eReturnNumber = BUTTON_1;
 	}
-	else if(S1 == (IO0PIN&S1)){
+	else if(S1 == (~IO0PIN&S1)){
 		eReturnNumber = BUTTON_2;
 	}
-	else if(S2 == (IO0PIN&S2)){
+	else if(S2 == (~IO0PIN&S2)){
 		eReturnNumber = BUTTON_3;
 	}
-	else if (S3 == (IO0PIN&S3)){
+	else if (S3 == (~IO0PIN&S3)){
 		eReturnNumber = BUTTON_4;
 	}
 	
 	return eReturnNumber;
 }
 
-/*Funkcja ustawiajaca wszystkie piny przyciskow S1-S4 na wejscie */
-void KeyboardInit(){
-	IO0DIR = IO0DIR|S0|S1|S2|S3; //bez modyfikacji innych bitow rejestru
-}
+
 
 /*Funkcja zapalajaca diode LED o podanym argumencie */
 void LedOn(int Number){
@@ -57,8 +59,6 @@ int main(){
 	int GiveANumber;
 	IO1DIR = IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm;
 	KeyboardInit();
-	IO0SET = IO0SET|S1;
-	IO0SET = IO0SET|S2;
 	GiveANumber = eKeyboardRead();
 	LedOn(GiveANumber);	
 }

@@ -20,6 +20,7 @@ void Delay(int iHowLong){
 }
 
 int main(){
+	IO1DIR=IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm;
 	while(1){
 		IO1SET = IO1SET|LED0_bm;
 		Delay(250);

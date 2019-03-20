@@ -27,7 +27,7 @@ void LedOn(int Number){
 void LedStep(enum LED_DIRECTION eWhere){
 	static unsigned int uiActualLedPoint = 0; 
 	if(eWhere == RIGHT){
-		++uiActualLedPoint;
+		uiActualLedPoint = uiActualLedPoint + 1;
 	}
 	else if (eWhere == LEFT){
 		--uiActualLedPoint;
@@ -52,12 +52,5 @@ void LedInit(void){
 		LedOn(0);
 }
 
-void Delay(int iHowLong){
-	int iMiliSeconds = 4615; 
-	unsigned long int uiIntCounter;
-	char cCharIncrementation;
-	for(uiIntCounter=0; uiIntCounter<(iHowLong*iMiliSeconds);uiIntCounter++){
-		cCharIncrementation++;
-	}
-}
+
 

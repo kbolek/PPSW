@@ -1,7 +1,15 @@
-<<<<<<< HEAD
 #include <LPC21xx.H>
 #include "led.h"
 #include "keyboard.h"
+
+void Delay(int iHowLong){
+	int iMiliSeconds = 4615; 
+	unsigned long int uiIntCounter;
+	char cCharIncrementation;
+	for(uiIntCounter=0; uiIntCounter<(iHowLong*iMiliSeconds);uiIntCounter++){
+		cCharIncrementation++;
+	}
+}
 
 int main(){
 	KeyboardInit();
@@ -17,20 +25,4 @@ int main(){
     }
     Delay(100);
 	}
-
-	
-=======
-/*1. Obsluga srodowiska Keil - 1.1 tworzenie projektu */
-int iPlusCounter;
-int iMinusCounter;
-int iLoopCtr;
-
-int main(){
-	iPlusCounter=10;
-	iMinusCounter=10;
-	for (iLoopCtr=0;iLoopCtr<5;iLoopCtr++){
-		iPlusCounter=iPlusCounter+3;
-		iMinusCounter=iMinusCounter-3;
-	}
->>>>>>> 91460d9187e854284f4d251db97a31c2045d280b
 }

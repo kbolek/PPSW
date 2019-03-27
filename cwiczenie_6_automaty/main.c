@@ -12,22 +12,40 @@ void Delay(int iHowLong){
 }
 
 int main(){
-	enum LedState {LED_LEFT, LED_RIGHT};
-	enum LedState eLedState = LED_LEFT;
-	//KeyboardInit();
+	enum StateOfDirection {STAY, MOVE_RIGHT, MOVE_LEFT};
+	enum StateOfDirection eStateOfDirection = STAY;
+	KeyboardInit();
 	LedInit();
 	while(1){
-		switch(eLedState){
-			case LED_LEFT:
-				eLedState = LED_RIGHT;
-				LedStepRight();
-			break;
-			case LED_RIGHT:
-				eLedState = LED_LEFT;
-				LedStepLeft();
-			break;
+		switch(eStateOfDirection){
+			case STAY:
+				if(eKeyboardRead() == BUTTON_1){
+					eStateOfDirection = MOVE_LEFT;
+				}
+				else if(eKeyboardRead() == BUTTON_3){
+					eStateOfDirection = MOVE_RIGHT;
+				}
+				break;		
+			case MOVE_RIGHT:
+				 if(eKeyboardRead() == BUTTON_2){
+						eStateOfDirection = STAY;
+					}
+				 else{
+						LedStepRight();  
+					}
+					break;
+					
+		  case MOVE_LEFT:
+					if(eKeyboardRead() == BUTTON_2){
+						eStateOfDirection = STAY;
+					}
+					else {
+						LedStepLeft();
+					}
+					break;
+				}
+				Delay(200);					
+			}			
 }
-Delay(500);
-}
-}
-//git test final
+//git test
+
